@@ -240,33 +240,6 @@
   .fnote { font-size:.75rem; color:rgba(255,255,255,0.25); text-align:center; margin-top:.9rem; }
   .smsg { display:none; background:rgba(37,211,102,0.12); border:1px solid rgba(37,211,102,0.3); border-radius:10px; padding:1rem; color:#4cee8a; font-size:.875rem; text-align:center; margin-top:1rem; }
 
-  /* ── ADMIN ── */
-  .admin-section { background:#f0f3fa; padding:4rem; border-top:2px solid var(--border); }
-  .admin-inner { max-width:1100px; margin:0 auto; }
-  .admin-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; }
-  .admin-title { font-family:'Playfair Display',serif; font-size:1.65rem; color:var(--navy); }
-  .admin-badge { background:var(--navy); color:var(--gold); padding:.3rem .8rem; border-radius:100px; font-size:.72rem; font-weight:600; }
-  .admin-toggle { background:var(--navy); color:white; border:none; padding:.6rem 1.2rem; border-radius:6px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:.85rem; }
-  .apanel { display:none; }
-  .apanel.open { display:block; }
-  .alogin { background:white; border-radius:12px; padding:2rem; max-width:380px; border:1px solid #dde3ef; }
-  .alogin h3 { font-family:'Playfair Display',serif; color:var(--navy); margin-bottom:1.25rem; }
-  .ali { width:100%; padding:.7rem 1rem; border:1px solid #dde3ef; border-radius:7px; font-family:'DM Sans',sans-serif; margin-bottom:.9rem; outline:none; font-size:.875rem; }
-  .albtn { background:var(--navy); color:white; border:none; padding:.7rem 1.4rem; border-radius:7px; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:500; }
-  .atblwrap { display:none; }
-  .atblwrap.open { display:block; }
-  .actrl { display:flex; gap:1rem; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; }
-  .afilter { padding:.55rem .9rem; border:1px solid #dde3ef; border-radius:6px; font-family:'DM Sans',sans-serif; font-size:.85rem; outline:none; }
-  .aexp { background:var(--gold); color:var(--navy); border:none; padding:.55rem 1.1rem; border-radius:6px; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:600; font-size:.85rem; }
-  table.ltbl { width:100%; border-collapse:collapse; background:white; border-radius:12px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-  .ltbl th { background:var(--navy); color:var(--gold); font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:.85rem 1rem; text-align:left; }
-  .ltbl td { padding:.8rem 1rem; font-size:.85rem; color:#3a4a60; border-bottom:1px solid #eef1f8; }
-  .ltbl tr:hover td { background:#f8f9fe; }
-  .tag { display:inline-block; padding:.18rem .55rem; border-radius:100px; font-size:.68rem; font-weight:600; }
-  .tag-s { background:#e8f0ff; color:#2a4ab5; }
-  .tag-b { background:#fff3e0; color:#a05a00; }
-  .tag-i { background:#f0e8ff; color:#6a1aaa; }
-
   /* ── FOOTER ── */
   footer { background:#060e1a; padding:3rem 4rem; }
   .foot-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
@@ -642,51 +615,6 @@
   </div>
 </section>
 
-<!-- ADMIN -->
-<section class="admin-section" id="admin">
-  <div class="admin-inner">
-    <div class="admin-hdr">
-      <div>
-        <div class="admin-title">Admin Panel</div>
-        <div style="font-size:.8rem;color:#6a7a90;margin-top:4px;">Manage incoming leads and enquiries</div>
-      </div>
-      <div style="display:flex;gap:1rem;align-items:center;">
-        <span class="admin-badge" id="leadCount">0 Leads</span>
-        <button class="admin-toggle" onclick="toggleAdmin()">🔐 Login to Admin</button>
-      </div>
-    </div>
-    <div class="apanel" id="apanel">
-      <div id="aLoginWrap">
-        <div class="alogin">
-          <h3>Admin Access</h3>
-          <input class="ali" type="text" id="aUser" placeholder="Username">
-          <input class="ali" type="password" id="aPass" placeholder="Password">
-          <button class="albtn" onclick="adminLogin()">Login</button>
-          <p style="font-size:.75rem;color:#9aabb8;margin-top:1rem;">Demo: admin / scanbridge2024</p>
-        </div>
-      </div>
-      <div class="atblwrap" id="atblWrap">
-        <div class="actrl">
-          <select class="afilter" id="aFilterType" onchange="renderTable()">
-            <option value="all">All Types</option>
-            <option value="seller">Sellers</option>
-            <option value="buyer">Buyers</option>
-            <option value="investor">Investors</option>
-          </select>
-          <input class="afilter" type="text" id="aSearch" placeholder="Search name or city..." oninput="renderTable()" style="width:200px;">
-          <button class="aexp" onclick="exportCSV()">⬇ Export CSV</button>
-          <button onclick="clearLeads()" style="background:white;color:#c0392b;border:1px solid #e0c0c0;padding:.55rem 1.1rem;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.85rem;">Clear All</button>
-        </div>
-        <div style="overflow-x:auto;">
-          <table class="ltbl">
-            <thead><tr><th>#</th><th>Name</th><th>Phone</th><th>Email</th><th>Type</th><th>City</th><th>Message</th><th>Received</th></tr></thead>
-            <tbody id="leadsBody"><tr><td colspan="8" style="text-align:center;color:#aaa;padding:2rem;">No leads yet.</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="foot-inner">
@@ -713,11 +641,6 @@
 </footer>
 
 <script>
-let leads = JSON.parse(localStorage.getItem('sb_leads')||'[]');
-let loggedIn = false;
-
-function updateCount(){document.getElementById('leadCount').textContent=leads.length+' Lead'+(leads.length!==1?'s':'');}
-updateCount();
 
 function submitForm(){
   const n=document.getElementById('fname').value.trim();
@@ -729,42 +652,9 @@ function submitForm(){
   if(!n||!p||!t){alert('Please fill in name, phone, and role.');return;}
   leads.push({id:leads.length+1,name:n,phone:p,email:e,type:t,city:c,msg:m,time:new Date().toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'})});
   localStorage.setItem('sb_leads',JSON.stringify(leads));
-  updateCount();
   ['fname','fphone','femail','fcity','fmsg'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('ftype').value='';
   const s=document.getElementById('smsg');s.style.display='block';setTimeout(()=>s.style.display='none',5000);
-  if(loggedIn)renderTable();
-}
-
-function toggleAdmin(){document.getElementById('apanel').classList.toggle('open');}
-
-function adminLogin(){
-  if(document.getElementById('aUser').value==='admin'&&document.getElementById('aPass').value==='scanbridge2024'){
-    loggedIn=true;
-    document.getElementById('aLoginWrap').style.display='none';
-    document.getElementById('atblWrap').classList.add('open');
-    renderTable();
-  }else{alert('Wrong credentials. Try admin / scanbridge2024');}
-}
-
-function renderTable(){
-  const ft=document.getElementById('aFilterType').value;
-  const fs=document.getElementById('aSearch').value.toLowerCase();
-  const filtered=leads.filter(l=>(ft==='all'||l.type===ft)&&(!fs||l.name.toLowerCase().includes(fs)||(l.city&&l.city.toLowerCase().includes(fs))));
-  const tb=document.getElementById('leadsBody');
-  if(!filtered.length){tb.innerHTML='<tr><td colspan="8" style="text-align:center;color:#aaa;padding:2rem;">No matching leads.</td></tr>';return;}
-  const tl={seller:'<span class="tag tag-s">Seller</span>',buyer:'<span class="tag tag-b">Buyer</span>',investor:'<span class="tag tag-i">Investor</span>',other:'<span class="tag" style="background:#eee;color:#555;">Other</span>'};
-  tb.innerHTML=filtered.map(l=>`<tr><td style="color:#aaa">${l.id}</td><td style="font-weight:500">${l.name}</td><td><a href="https://wa.me/${l.phone.replace(/\D/g,'')}" target="_blank" style="color:#25D366;text-decoration:none">📱 ${l.phone}</a></td><td>${l.email||'—'}</td><td>${tl[l.type]||l.type}</td><td>${l.city||'—'}</td><td style="max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${l.msg}">${l.msg||'—'}</td><td style="white-space:nowrap;color:#8a9ab5">${l.time}</td></tr>`).join('');
-}
-
-function exportCSV(){
-  const h='ID,Name,Phone,Email,Type,City,Message,Time\n';
-  const r=leads.map(l=>[l.id,l.name,l.phone,l.email,l.type,l.city,'"'+(l.msg||'').replace(/"/g,'""')+'"',l.time].join(',')).join('\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h+r],{type:'text/csv'}));a.download='scanbridge_leads.csv';a.click();
-}
-
-function clearLeads(){
-  if(confirm('Clear all leads? Cannot be undone.')){leads=[];localStorage.setItem('sb_leads','[]');updateCount();renderTable();}
 }
 </script>
 </body>
